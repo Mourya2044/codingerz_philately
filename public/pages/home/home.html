@@ -1,0 +1,189 @@
+<div class="container">
+    <section class="hero" id="home">
+        <h1>Welcome to the World of Philately</h1>
+        <p>Discover the fascinating history, facts, and joys of stamp collecting.</p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">The History of Stamp Collecting</h2>
+        <p class="section-description">Explore the origins and evolution of philately, the art of stamp collecting.</p>
+        <div class="card">
+            <h3 class="card-title">The Penny Black</h3>
+            <p class="card-content">The world's first adhesive postage stamp, the Penny Black, was issued in the United
+                Kingdom in 1840. This groundbreaking stamp revolutionized postal services and sparked the beginning of
+                stamp collecting as a hobby.</p>
+            <a onclick="loadContent('learn')" class="button">Learn More</a>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Stamp Collecting Goes Global</h3>
+            <p class="card-content">As postal services expanded worldwide, stamp collecting quickly became a popular
+                pastime among the general public. By the 1860s, the first stamp albums and specialized catalogs were
+                introduced, further fueling the growth of philately.</p>
+            <a onclick="loadContent('learn')" class="button">Explore History</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Fascinating Facts About Stamps</h2>
+        <p class="section-description">Discover the unique stories and characteristics behind some of the world's most
+            remarkable stamps.</p>
+        <div class="card">
+            <h3 class="card-title">The Inverted Jenny</h3>
+            <p class="card-content">The Inverted Jenny is a rare stamp from the United States featuring an inverted
+                picture of a Curtiss JN-4 biplane. This printing error has made it one of the most valuable and
+                sought-after stamps in the world.</p>
+            <a onclick="loadContent('learn')" class="button">Learn More</a>
+        </div>
+        <div class="card">
+            <h3 class="card-title">The Blue Mauritius</h3>
+            <p class="card-content">The Blue Mauritius, also known as the 'Penny Bordeaux', is a rare stamp issued by
+                the British colony of Mauritius in 1847. It is considered one of the most valuable and famous stamps in
+                the world, with only a few surviving examples.</p>
+            <a onclick="loadContent('museum')" class="button">Explore Rare Stamps</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Start Your Stamp Collection</h2>
+        <p class="section-description">Begin your journey into the world of philately with these helpful tips and
+            resources.</p>
+        <div class="card">
+            <h3 class="card-title">Beginner's Guide to Stamp Collecting</h3>
+            <p class="card-content">Learn the basics of stamp collecting, including essential tools, storage techniques,
+                and how to build a collection that suits your interests.</p>
+            <a onclick="loadContent('learn')" class="button">Read Guide</a>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Stamp Collecting Clubs and Museums</h3>
+            <p class="card-content">Connect with fellow philatelists, attend local stamp collecting events, and visit
+                museums to explore the rich history and culture of stamp collecting.</p>
+            <a onclick="loadContent('community')" class="button">Find Local Clubs</a>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Dive into the Hobby</h2>
+        <p class="section-description">Explore the many ways to engage with the world of stamp collecting.</p>
+        <div class="card">
+            <h3 class="card-title">Start Your Collection</h3>
+            <p class="card-content">Begin your stamp collection by focusing on a specific theme, country, or historical
+                era that interests you. Discover the joy of hunting for rare and unique stamps.</p>
+            <a onclick="loadContent('marketplace')" class="button">Browse Stamps</a>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Join the Community</h3>
+            <p class="card-content">Connect with fellow stamp collectors, share knowledge, and trade stamps through our
+                online platform and local meetups.</p>
+            <a class="button" onclick="loadContent('community')">Join Now</a>
+        </div>
+    </section>
+</div>
+
+<style>
+    /* :root {
+        --primary-color: #B02924;
+        --secondary-color: #F7DD77;
+        --accent-color: #d55a5a;
+        --text-color: #210000;
+        --light-bg: #6e0404;
+        --border-color: #e2e8f0;
+        --hover-color: #510000;
+    } */
+
+    /* Reset some default styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        line-height: 1.6;
+        color: #333;
+        background-color: #f5f5f5;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 1rem;
+    }
+
+    .section {
+        margin-bottom: 4rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 1.5rem;
+    }
+
+    .section-description {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 2rem;
+    }
+
+    .hero {
+        background-image: url('images/home.png');
+        /* Example image */
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 5rem 2rem;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+    }
+
+    .card-content {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 1.5rem;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .button:hover {
+        background-color: var(--secondary-color);
+    }
+
+    @media (max-width: 768px) {
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+</style>
