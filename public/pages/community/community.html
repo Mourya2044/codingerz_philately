@@ -1,4 +1,251 @@
-<div id="community" class="section">
-    <h2>Community</h2>
-    <p>Engage in discussions with fellow philatelists in the community forum.</p>
+<div class="username-modal" id="username-modal">
+    <div class="modal-content">
+        <h2>Enter Your Username</h2>
+        <input type="text" id="username-input" placeholder="Username">
+        <button onclick="setUsername()">Join Chat</button>
+    </div>
 </div>
+
+<div class="container">
+    <div class="header">
+        <!-- <div class="heading-chat">
+            <h2>Chat Rooms</h2>
+            
+        </div> -->
+        <div class="room-list">
+            <button onclick="joinRoom('global')" id="global-btn">Global Community</button>
+            <button onclick="joinRoom('state')" id="state-btn">State Community</button>
+        </div>
+    </div>
+
+    <div class="chat-container">
+        <div class="chat-header" id="room-header">
+            <h3 id="room-title">Select a room to start chatting</h3>
+            <div class="users-count">
+                <h3>Online Users: &nbsp;</h3>
+                <h3 id="user-count">0</h3>
+                <!-- <ul id="users-list"></ul> -->
+            </div>
+        </div>
+        <div id="messages"></div>
+        <div id="form">
+            <input id="input" autocomplete="off" placeholder="Type a message..." />
+            <button onclick="sendMessage()">Send</button>
+            </form>
+        </div>
+
+    </div>
+
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+
+        .header {
+            background: #2c2f33;
+            color: white;
+            padding: 1rem;
+        }
+
+        /* .header h2 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            color: #ffffff;
+        } 
+
+        .heading-chat {
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+        } */
+
+        .room-list {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .room-list button {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            background: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .room-list button:hover {
+            background: var(--secondary-color);
+        }
+
+        .room-list button.active {
+            background: var(--secondary-color);
+        }
+
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            padding: 1rem;
+            background: #ffffff;
+            border-bottom: 1px solid #e3e5e8;
+            font-weight: bold;
+        }
+
+        #messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .message {
+            padding: 0.8rem;
+            border-radius: 12px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .message.received {
+            border-top-left-radius: 0px;
+            background: #e3e5e8;
+            align-self: flex-start;
+        }
+
+        .message.sent {
+            border-top-right-radius: 0px;
+            background: #7289da;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .message .username {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .text-box {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .message .time {
+            font-size: 0.7rem;
+            opacity: 0.5;
+            margin-top: 0.1rem;
+            justify-content: end;
+            padding: 0.2rem;
+        }
+
+        #form {
+            position: sticky;
+            bottom: 0;
+            display: flex;
+            padding: 1rem;
+            gap: 0.5rem;
+            background: #ffffff;
+            border-top: 1px solid #e3e5e8;
+            z-index: 10;
+        }
+
+        #input {
+            flex-grow: 1;
+            padding: 0.8rem;
+            border: 1px solid #e3e5e8;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        #form button {
+            padding: 0.8rem 1.5rem;
+            background: #7289da;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #form button:hover {
+            background: #5b6eae;
+        }
+
+        .users-count {
+            display: flex;
+        }
+
+        .users-count h3 {
+            color: #4f5660;
+        }
+
+        #users-list {
+            list-style: none;
+        }
+
+        #users-list li {
+            padding: 0.5rem;
+            margin-bottom: 0.3rem;
+            border-radius: 4px;
+            background: #ffffff;
+            font-size: 0.9rem;
+        }
+
+        .username-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 11;
+            /* display: none; */
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 1rem;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e3e5e8;
+            border-radius: 4px;
+        }
+
+        .modal-content button {
+            width: 100%;
+            padding: 0.8rem;
+            background: #7289da;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="/socket.io/socket.io.js"></script>
