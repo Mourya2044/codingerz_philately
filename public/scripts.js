@@ -48,7 +48,7 @@ function updateActiveTab(page) {
     });
 
     // Find the tab corresponding to the current page
-    const activeTab = document.querySelector(`.nav-menu a[data-page="${ page }"]`);
+    const activeTab = document.getElementById(page);
 
     // Add the 'active' class to the matching tab
     if (activeTab) {
