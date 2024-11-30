@@ -22,7 +22,11 @@
             <a onclick="loadContent('auction')" id="auction">Auction</a>
             <a onclick="loadContent('events')" id="events">Events</a>
         </div>
-        <a href="../pages/login/login.html">Login</a>
+        <div class="nav-menu">
+            <p id="user" class="hide centered-text"></p>
+            <a href="../pages/login/login.html" id="login">Login</a>
+            <a class="hide" id="logout" onclick="logout()" >Logout</a>
+        </div>
     </nav>
 
     <div id="content"></div>

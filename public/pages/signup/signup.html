@@ -9,7 +9,7 @@
 <body>
     <!-- Login Page Content -->
     <section class="login-container">
-        <h2>Login</h2>
+        <h2>Sign Up</h2>
         <form id="loginForm">
             <input type="email" name="email" placeholder="Email" required>
             <span class="email error" style="color: red;"></span> <!-- Error for email -->
@@ -17,55 +17,51 @@
             <input type="password" name="password" placeholder="Password" required>
             <span class="password error" style="color: red;"></span> <!-- Error for password -->
 
-            <button type="submit">Login</button>
-            <a href="#">Forgot Password?</a>
-            <a href="../signup/signup.html">Create an Account</a>
+            <button type="submit">Sign Up</button>
+            <a href="../login/login.html">Already have an account? Login</a>
         </form>
     </section>
 
     <script>
-        const form = document.querySelector('#loginForm');
-        const emailError = document.querySelector('.email.error');
-        const passwordError = document.querySelector('.password.error');
+        const form = document.querySelector('form')
+        const emailError = document.querySelector('.email.error')
+        const passwordError = document.querySelector('.password.error')
 
         form.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent the default form submission
+            e.preventDefault()
 
-            // Reset errors
-            emailError.textContent = '';
-            passwordError.textContent = '';
+            // reset errors
+            emailError.textContent = ''
+            passwordError.textContent = ''
 
-            // Get the values
-            const email = form.email.value;
-            const password = form.password.value;
+            // get the values
+            const email = form.email.value
+            const password = form.password.value
 
             try {
-                const res = await fetch('/login', {
+                const res = await fetch('/signup', {
                     method: 'POST',
                     body: JSON.stringify({ email, password }),
                     headers: { 'Content-Type': 'application/json' }
-                });
-
-                // Ensure the response is JSON
-                const data = await res.json();
-                // console.log(data);
-
-                // Display errors if any
+                })
+                const data = await res.json()
+                console.log(data);
                 if (data.errors) {
-                    emailError.textContent = data.errors.email || '';
-                    passwordError.textContent = data.errors.password || '';
+                    emailError.textContent = data.errors.email
+                    passwordError.textContent = data.errors.password
                 }
-
-                // Redirect if login is successful
                 if (data.user) {
-                    location.assign('/');
+                    location.assign('/')
                 }
 
             } catch (error) {
-                console.log(error);
+                console.log(error)
+
             }
-        });
+
+        })
     </script>
+
 
     <style>
         /* Basic reset for margin and padding */
